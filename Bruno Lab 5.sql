@@ -44,6 +44,14 @@ where c.city = a.city
 select c.name, a.name, c.city, a.city
 from customers c
 	inner join agents a on c.city = a.city;
+	
+-- Question 7:
+select name, city
+from customers
+where city in (select city 
+	       from products
+	       group by city
+	       order by count (*) ASC
+Limit 1);
 
-      
       
